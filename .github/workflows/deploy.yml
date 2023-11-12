@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: SSH and Deploy to Kubernetes
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v0.1.4
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
