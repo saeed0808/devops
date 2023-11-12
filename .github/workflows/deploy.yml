@@ -46,8 +46,9 @@ jobs:
             # Deploy using Helm
             #helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
             ################
+            minikube start -p adjust-infra --extra-config=apiserver.service-node-port-range=1-65535
             git clone https://github.com/saeed0808/devops.git /tmp/devops
-            cd /tmp/devops/http-server-chart
-          #  cd /tmp/devops/my-app
+            #cd /tmp/devops/http-server-chart
+            cd /tmp/devops/my-app
             helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
-           # rm -rf /tmp/helm-charts
+            rm -rf /tmp/devops/my-app
