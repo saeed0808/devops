@@ -42,8 +42,8 @@ jobs:
           port: 22
           script: |
             # Navigate to Helm chart directory (modify if necessary)
-            cd http-server-chart
-
+           # cd http-server-chart
+             ls -al
             # Deploy using Helm
-            helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
+            #helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
 
