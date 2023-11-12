@@ -49,4 +49,4 @@ jobs:
             git clone https://github.com/saeed0808/devops.git /tmp/helm-charts
             cd /tmp/helm-charts/path/to/helm/chart
             helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
-            rm -rf /tmp/helm-charts
+           # rm -rf /tmp/helm-charts
