@@ -5,7 +5,8 @@
 4. helm: https://helm.sh/docs/intro/install/
 5. argocd CLI
 6. argocd infra
-
+   
+# script way install
 1. chmod docker.sh; ./docker.sh
 2. chmod +x minikube.sh; ./minikube.sh
 3. chmod +x k8s.sh; ./k8s.sh
