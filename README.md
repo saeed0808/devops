@@ -35,9 +35,9 @@ docker push docker.io/saeed9124/ruby-app:tag
 
 kubectl config set-context --current --namespace=prod
 #Production Layer
-$ kubectl -n prod get deployment
-$ kubectl -n prod get pods
-$ kubectl -n prod get svc #To get url of the load balancer 
+kubectl -n prod get deployment
+kubectl -n prod get pods
+kubectl -n prod get svc #To get url of the load balancer 
 
 minikube -p adjust-infra service loadbalancer-service -n prod
 
@@ -54,13 +54,6 @@ sudo apt-get install helm
 helm install my-http-server http-server-chart
 helm install my-http-server http-server-chart -n prod
 
-
-
-
-
-
 # Deplyment
 kubectl create namespace prod
 kubectl config set-context --current --namespace=prod
-
-
