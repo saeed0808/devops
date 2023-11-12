@@ -7,19 +7,19 @@
 6. argocd infra
    
 # script way install
-1. chmod docker.sh; ./docker.sh
-2. chmod +x minikube.sh; ./minikube.sh
-3. chmod +x k8s.sh; ./k8s.sh
-4. chmod +x helm.sh; ./helm.sh
-5. chmod +x argocdcli.sh; ./argocdcli.sh
-6.  cat argocd-command-for-setup 
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.0-rc2/manifests/install.yaml
-kubectl config set-context --current --namespace=argocd
-kubectl get pods
-kubectl exec -it argocd-server-******** /bin/bash
-argocd admin initial-password
-argocd login localhost:8080 --insecure
+      - chmod docker.sh; ./docker.sh
+      - chmod +x minikube.sh; ./minikube.sh
+      - chmod +x k8s.sh; ./k8s.sh
+      - chmod +x helm.sh; ./helm.sh
+      - chmod +x argocdcli.sh; ./argocdcli.sh
+   
+       - kubectl create namespace argocd
+       - kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.0-rc2/manifests/install.yaml
+       - kubectl config set-context --current --namespace=argocd
+       - kubectl get pods
+       - kubectl exec -it argocd-server-******** /bin/bash
+       - argocd admin initial-password
+       - argocd login localhost:8080 --insecure
 
 
 # Push on dockerhub with token
