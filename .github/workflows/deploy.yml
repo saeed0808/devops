@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Build, Push and Deploy
 
 on:
   push:
@@ -6,18 +6,28 @@ on:
       - prod  # Trigger the workflow on push to prod branch
 
 jobs:
-  deploy:
+  build-docker-and-push-to-dockerhub:
     runs-on: ubuntu-latest
+    # ... (existing build and push steps)
+
+  deploy-to-kubernetes:
+    runs-on: ubuntu-latest
+    needs: build-docker-and-push-to-dockerhub
     steps:
-    - name: Check Out Repository
-      uses: actions/checkout@v2
+      - name: Check Out Repository
+        uses: actions/checkout@v2
 
-    - name: Set up Kubectl
-      uses: azure/setup-kubectl@v1
+      - name: SSH and Deploy to Kubernetes
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            # Navigate to Helm chart directory (modify if necessary)
+            cd http-server-chart
 
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f deploytoprod.yaml
-      env:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+            # Deploy using Helm
+            helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
 
