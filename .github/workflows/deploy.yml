@@ -46,7 +46,7 @@ jobs:
             # Deploy using Helm
             #helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
             ################
-            git clone https://github.com/saeed0808/devops.git /tmp/helm-charts
-            cd /tmp/helm-charts/path/to/helm/chart
+            git clone https://github.com/saeed0808/devops.git /tmp/devops
+            cd /tmp/devops/http-server-chart
             helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
            # rm -rf /tmp/helm-charts
