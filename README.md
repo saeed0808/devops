@@ -38,6 +38,6 @@
        - kubectl -n prod get svc #To get url of the load balancer 
 
        - minikube -p adjust-infra service loadbalancer-service -n prod
-# varify deplyment minikube
+# varify deployment on minikube if public ip is not allocated one way to check
 ![image](https://github.com/saeed0808/devops/assets/46480999/82ada74e-9fc6-4bd8-a85d-7fbcb0a30bba)
 
