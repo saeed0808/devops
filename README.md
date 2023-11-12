@@ -57,3 +57,7 @@ helm install my-http-server http-server-chart -n prod
 # Deplyment
 kubectl create namespace prod
 kubectl config set-context --current --namespace=prod
+
+# varify deplyment minikube
+![image](https://github.com/saeed0808/devops/assets/46480999/82ada74e-9fc6-4bd8-a85d-7fbcb0a30bba)
+
