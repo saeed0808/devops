@@ -43,7 +43,7 @@ jobs:
           script: |
             # Navigate to Helm chart directory (modify if necessary)
            # cd http-server-chart
-             ls -al
-            # Deploy using Helm
+             kubectl get pods
+             # Deploy using Helm
             #helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
 
