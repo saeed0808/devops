@@ -1,9 +1,9 @@
-name: Build, Push and Deploy
+name: Build, Push, and Deploy
 
 on:
   push:
     branches:
-      - prod  # Trigger the workflow on push to prod branch
+      - prod  # Trigger the workflow on push to the prod branch
 
 jobs:
   build-docker-and-push-to-dockerhub:
@@ -33,6 +33,14 @@ jobs:
       - name: Check Out Repository
         uses: actions/checkout@v2
 
+      - name: Set up SSH Key
+        run: |
+          echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -t rsa ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+
       - name: SSH and Deploy to Kubernetes
         uses: appleboy/ssh-action@v0.1.4
         with:
@@ -41,9 +49,10 @@ jobs:
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-                ip r
+            ip r
             # Navigate to Helm chart directory (modify if necessary)
-#             cd devops/http-server-chart
-             # Deploy using Helm
- #            helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
+            # cd devops/http-server-chart
+            # Deploy using Helm
+            # helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
+
 
