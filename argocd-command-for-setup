@@ -1,0 +1,14 @@
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.0-rc2/manifests/install.yaml
+
+kubectl config set-context --current --namespace=argocd
+kubectl get pods
+
+kubectl exec -it argocd-server-******** /bin/bash
+
+argocd admin initial-password
+
+argocd login localhost:8080 --insecure
+
+#argocd login --username=admin --password=BfzjdqKPRo85GfN6 --insecure --grpc-web 52.66.208.170:8080
+
