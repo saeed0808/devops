@@ -23,11 +23,11 @@ argocd login localhost:8080 --insecure
 
 
 # Push on dockerhub with token
-echo $PAT
-export PAT=your_personal_access_token
-echo $PAT | docker login --username saeed9124 --password-stdin
-docker tag ruby-app docker.io/saeed9124/ruby-app:tag
-docker push docker.io/saeed9124/ruby-app:tag
+            - echo $PAT
+            - export PAT=your_personal_access_token
+            - echo $PAT | docker login --username saeed9124 --password-stdin
+            - docker tag ruby-app docker.io/saeed9124/ruby-app:tag
+            - docker push docker.io/saeed9124/ruby-app:tag
 
 # K8s commands
 kubectl create namespace prod
