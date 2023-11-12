@@ -42,7 +42,8 @@ jobs:
           port: 22
           script: |
             # Navigate to Helm chart directory (modify if necessary)
-             cd http-server-chart
+             git clone https://github.com/saeed0808/devops.git
+             cd devops/http-server-chart
              # Deploy using Helm
              helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
 
