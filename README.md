@@ -1,4 +1,4 @@
-# Install docker using script for ubuntu
+## Install docker using script for ubuntu
 chmod +x docker.sh
 ./docker.sh
 sudo usermod -aG docker $USER
