@@ -50,10 +50,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            ip r
             # Navigate to Helm chart directory (modify if necessary)
-            # cd devops/http-server-chart
+            cd http-server-chart
             # Deploy using Helm
-            # helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
-
+            helm upgrade --install my-release . --namespace default --set image.repository=saeed9124/ruby-app,image.tag=latest
 
